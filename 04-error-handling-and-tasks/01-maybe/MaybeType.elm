@@ -33,7 +33,39 @@ getTeenAge user =
     Just age ->
       if 13 <= age && age <= 18 then
         Just age
-
       else
         Nothing
 
+getTeenName : User -> Maybe String
+getTeenName user =
+  case user.age of
+    Nothing ->
+      Nothing
+
+    Just age ->
+      if 13 <= age && age <= 18 then
+        Just user.name
+      else
+        Nothing
+
+isTeenAge : Maybe Int -> Bool
+isTeenAge maybeAge =
+  case maybeAge of
+    Nothing ->
+      False
+    Just age ->
+      13 <= age && age <= 18
+
+getTeenAge' : User -> Maybe Int
+getTeenAge' user =
+  if isTeenAge user.age then
+    user.age
+  else
+    Nothing
+
+getTeenName' : User -> Maybe String
+getTeenName' user =
+  if isTeenAge user.age then
+    Just user.name
+  else
+    Nothing
