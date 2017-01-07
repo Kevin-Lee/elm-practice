@@ -56,15 +56,15 @@ isTeenAge maybeAge =
     Just age ->
       13 <= age && age <= 18
 
-getTeenAge' : User -> Maybe Int
-getTeenAge' user =
+getTeenAge2 : User -> Maybe Int
+getTeenAge2 user =
   if isTeenAge user.age then
     user.age
   else
     Nothing
 
-getTeenName' : User -> Maybe String
-getTeenName' user =
+getTeenName2 : User -> Maybe String
+getTeenName2 user =
   if isTeenAge user.age then
     Just user.name
   else
